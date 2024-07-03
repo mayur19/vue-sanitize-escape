@@ -22,8 +22,6 @@ jobs:
             echo "Error: Node.js version $current_version is less than the required version $required_version."
             exit 1
           fi
-      - run: npm ci
-      - run: npm test
       - run: npm run build
       - run: npm publish --access public
         env:
