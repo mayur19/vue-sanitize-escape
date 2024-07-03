@@ -24,6 +24,7 @@ Injection, and Open Redirects.
 - **Lightweight and Dependency-Free:**
     - No external dependencies, ensuring minimal overhead.
     - Focused on core sanitization and escaping tasks.
+- **Support for the Vitejs based projects**
 
 ## Installation
 

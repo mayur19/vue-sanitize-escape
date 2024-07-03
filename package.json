@@ -1,6 +1,6 @@
 {
   "name": "vue-sanitize-escape",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue.js plugin for sanitizing and escaping user input to protect against XSS, SQL injection, and other security vulnerabilities.",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -10,6 +10,9 @@
   },
   "keywords": [
     "vue",
+    "vuejs",
+    "vite",
+    "vitejs",
     "sanitize",
     "escape",
     "security",
