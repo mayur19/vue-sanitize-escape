@@ -1,0 +1,30 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Or your preferred version
+          registry-url: 'https://registry.npmjs.org'
+      - name: Check Node.js version
+        run: |
+          required_version="14"
+          current_version=$(node -v)
+          if [ $(printf '%s\n' "$required_version" "$current_version" | sort -V | head -n1) != "$required_version" ]; then
+            echo "Error: Node.js version $current_version is less than the required version $required_version."
+            exit 1
+          fi
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
