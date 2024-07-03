@@ -1,6 +1,6 @@
 {
   "name": "vue-sanitize-escape",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue.js plugin for sanitizing and escaping user input to protect against XSS, SQL injection, and other security vulnerabilities.",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -34,12 +34,10 @@
     "url": "https://github.com/mayur19/vue-sanitize-escape/issues"
   },
   "homepage": "https://github.com/mayur19/vue-sanitize-escape#readme",
-  "dependencies": {
-    "@jest/globals": "^29.7.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
+    "@jest/globals": "^29.7.0",
     "babel-jest": "^29.7.0",
     "jest": "^29.5.0",
     "webpack": "^5.88.2",
