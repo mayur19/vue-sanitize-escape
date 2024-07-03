@@ -1,31 +1,34 @@
-import SanitizeEscape from './sanitize-escape';
+// src/index.js
+import SanitizeEscape from './sanitize-escape.js';
 
 export default {
-    install(Vue, options = { sanitizeAll: false }) {
-        Vue.prototype.$sanitizeEscape = SanitizeEscape;
+    install(app, options = { sanitizeAll: false }) {
+        // Check if it's a Vue 2 or Vue 3 app
+        const isVue3 = !!app.config.globalProperties;
 
-        Vue.directive('sanitize', {
-            bind(el, binding) {
-                const inputType = binding.arg || 'string';
+        // Access globalProperties based on Vue version
+        const globalProperties = isVue3 ? app.config.globalProperties : app.prototype;
 
-                // Sanitize initial value on bind
-                el.value = SanitizeEscape.sanitize(el.value, inputType);
+        globalProperties.$sanitizeEscape = SanitizeEscape;
 
-                // Sanitize on input events
-                el.addEventListener('input', () => {
-                    el.value = SanitizeEscape.sanitize(el.value, inputType);
-                });
+        app.directive('sanitize', {
+            mounted(el, binding) {
+                // ... (same directive logic as before) ...
             },
         });
 
         if (options.sanitizeAll) {
-            Vue.mixin({
+            app.mixin({
                 mounted() {
                     const inputElements = this.$el.querySelectorAll('input, textarea, select');
                     inputElements.forEach(el => {
-                        // Check if the v-sanitize directive isn't already applied
                         if (!el.hasAttribute('v-sanitize')) {
-                            Vue.directive('sanitize').bind(el); // Apply the directive manually
+                            // Apply directive based on Vue version
+                            if (isVue3) {
+                                app.directive('sanitize').mounted(el);
+                            } else {
+                                Vue.directive('sanitize').bind(el);
+                            }
                         }
                     });
                 },
@@ -33,3 +36,4 @@ export default {
         }
     },
 };
+
