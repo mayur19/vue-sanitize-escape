@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/vue-sanitize-escape.svg)](https://www.npmjs.com/package/vue-sanitize-escape)
 [![License](https://img.shields.io/npm/l/vue-sanitize-escape.svg)](https://github.com/your-username/vue-sanitize-escape/blob/main/LICENSE)
-[![Build Status](https://github.com/mayur19/vue-sanitize-escape/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/your-username/vue-sanitize-escape/actions)
+[![Build Status](https://github.com/mayur19/vue-sanitize-escape/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/mayur19/vue-sanitize-escape/actions/workflows/npm-publish.yml)
 [![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://github.com/your-username/vue-sanitize-escape)
 
 A Vue.js plugin to fortify your application against common web vulnerabilities like Cross-Site Scripting (XSS), SQL
